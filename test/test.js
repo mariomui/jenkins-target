@@ -1,8 +1,12 @@
-var request = require('supertest');
+var supertest = require('supertest');
 var app = require('../index.js');
+
+const r = supertest(app);
+
 describe('GET /', function() {
  it('respond with hello world', function(done) {
  //navigate to root and check the the response is "hello world"
- request(app).get('/').expect('hello world', done);
+    r.get('/').expect('hello world').end(done);
  });
 });
+
